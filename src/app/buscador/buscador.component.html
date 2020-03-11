@@ -1,0 +1,27 @@
+<input type="text" [(ngModel)]="busqueda" (input)="activateButton()" >
+<a 
+    name="" 
+    id="" 
+    class="btn btn-primary" 
+    [class.disabled]="!activar" 
+    href="#" 
+    role="button"
+    (click)="buscar()"
+    >Buscar</a>
+
+    <p class={{busqueda}} [ngStyle]="{'background-color':busqueda.length>3?'red':'green'}"
+        [ngClass]="{
+            'display-3': (busqueda.length==3),
+            'display-4': (busqueda.length==4)}" >{{resBusqueda | json}}</p>
+       
+<input type="text" [(ngModel)]="busqueda" >
+<a  *ngIf="busqueda.length>0"
+    name="" 
+    id="" 
+    class="btn btn-primary" 
+    [class.disabled]="(busqueda.length<=3)" 
+    href="#" 
+    role="button"
+    (click)="buscar()"
+    >Buscar</a>
+
