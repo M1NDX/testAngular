@@ -27,4 +27,8 @@ export class BuscadorComponent implements OnInit {
       .includes(this.busqueda.toUpperCase()));
   }
 
+  modificarUser(index: number):void {
+    console.log(this.objetos[index])
+  }
+
 }

@@ -15,13 +15,20 @@
             'display-4': (busqueda.length==4)}" >{{resBusqueda | json}}</p>
        
 <input type="text" [(ngModel)]="busqueda" >
-<a  *ngIf="busqueda.length>0"
-    name="" 
-    id="" 
-    class="btn btn-primary" 
-    [class.disabled]="(busqueda.length<=3)" 
-    href="#" 
-    role="button"
-    (click)="buscar()"
-    >Buscar</a>
+
+<div *ngIf="busqueda.length<=3" class="alert alert-danger" role="alert">
+    <strong>Importante</strong> hay un error en el input
+</div>
+
+<div *ngIf="busqueda.length>3" class="alert alert-dark" role="alert">
+    <strong>Importante</strong> hay un error en el input
+</div>
+
+<ul *ngFor="let item of objetos; let i = index; let impar = odd; let par= even">
+    <li > {{item.name}}</li>
+    <li > {{item.id}}</li>
+    <li> valorImpar:{{impar}}, valorPar: {{par}}  </li>
+    <li > {{i}} <a name="" id="" class="btn btn-primary" href="#" role="button" (click)="modificarUser(i)" >enviar</a> </li>
+</ul>
+
 
